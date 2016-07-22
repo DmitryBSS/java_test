@@ -33,11 +33,12 @@ public class GroupCreationTests {
     @Test
     public void testGroupCreation() {
         gotoGroupPage();
-        iniGroupCreation();
+        initGroupCreation();
         fillGroupForm(new GroupData("test1", "test2", "test3"));
         submitGroupCreation();
         returnToGroupPage();
     }
+
 
     private void returnToGroupPage() {
         wd.findElement(By.linkText("group page")).click();
@@ -59,7 +60,7 @@ public class GroupCreationTests {
         wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
-    private void iniGroupCreation() {
+    private void initGroupCreation() {
         wd.findElement(By.name("new")).click();
     }
 
