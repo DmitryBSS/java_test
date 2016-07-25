@@ -57,4 +57,21 @@ public class ContractHelper extends HelperBase {
         type(By.name("phone2"), contactData.getPhone2());
         type(By.name("notes"), contactData.getNotes());
     }
+
+    public void selectContract() {
+        click(By.name("selected[]"));
+    }
+
+    public void initContractModification() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img"));
+    }
+
+    public void submitContractModification() {
+        click(By.name("update"));
+    }
+
+    public void deleteSelectedContract() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+        wd.switchTo().alert().accept();
+    }
 }
