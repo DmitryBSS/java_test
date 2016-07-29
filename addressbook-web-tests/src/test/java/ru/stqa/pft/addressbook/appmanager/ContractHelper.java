@@ -71,7 +71,7 @@ public class ContractHelper extends HelperBase {
     }
 
     public void initContractModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
     }
 
     public void submitContractModification() {
@@ -81,5 +81,16 @@ public class ContractHelper extends HelperBase {
     public void deleteSelectedContract() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
         wd.switchTo().alert().accept();
+    }
+
+    public void createContract(ContactData contact) {
+        fillContractForm(contact, true);
+        submitContractCreation();
+        returnToHomePage();
+
+    }
+
+    public boolean isThereAContract() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
