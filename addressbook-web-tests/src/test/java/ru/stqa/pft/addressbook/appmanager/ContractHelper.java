@@ -74,8 +74,7 @@ public class ContractHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public void initContractModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    public void initContractModification(int index) {
     }
 
     public void submitContractModification() {
