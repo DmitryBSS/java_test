@@ -75,6 +75,7 @@ public class ContractHelper extends HelperBase {
     }
 
     public void initContractModification(int index) {
+        wd.findElements(By.xpath("//*[@src='icons/pencil.png']")).get(index).click();
     }
 
     public void submitContractModification() {
