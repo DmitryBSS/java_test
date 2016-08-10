@@ -2,9 +2,13 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by popdv on 25.07.2016.
@@ -66,8 +70,8 @@ public class ContractHelper extends HelperBase {
         }
     }
 
-    public void selectContract() {
-        click(By.name("selected[]"));
+    public void selectContract(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void initContractModification() {
@@ -87,10 +91,26 @@ public class ContractHelper extends HelperBase {
         fillContractForm(contact, true);
         submitContractCreation();
         returnToHomePage();
-
     }
 
     public boolean isThereAContract() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getContractCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContractList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = entry]"));
+        for (WebElement element : elements) {
+            String firstName = element.findElement(By.cssSelector("td:nth-of-type(3)")).getText();
+            String lastName = element.findElement(By.cssSelector("td:nth-of-type(2)")).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData(id, firstName, null, lastName, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }

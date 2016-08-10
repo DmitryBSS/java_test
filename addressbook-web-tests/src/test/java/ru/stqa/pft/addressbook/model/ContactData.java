@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
+    private int id;
     private final String firstName;
     private final String middleName;
     private final String lastName;
@@ -24,6 +25,7 @@ public class ContactData {
     private String group;
 
     public ContactData(String firstName, String middleName, String lastName, String nickName, String title, String company, String address, String telHome, String telMobile, String telWork, String fax, String email1, String email2, String email3, String homePage, String bYear, String aYear, String address2, String phone2, String notes, String group) {
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -45,6 +47,35 @@ public class ContactData {
         this.phone2 = phone2;
         this.notes = notes;
         this.group = group;
+    }
+
+    public ContactData(int id, String firstName, String middleName, String lastName, String nickName, String title, String company, String address, String telHome, String telMobile, String telWork, String fax, String email1, String email2, String email3, String homePage, String bYear, String aYear, String address2, String phone2, String notes, String group) {
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.nickName = nickName;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.telHome = telHome;
+        this.telMobile = telMobile;
+        this.telWork = telWork;
+        this.fax = fax;
+        this.email1 = email1;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.homePage = homePage;
+        this.bYear = bYear;
+        this.aYear = aYear;
+        this.address2 = address2;
+        this.phone2 = phone2;
+        this.notes = notes;
+        this.group = group;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -129,5 +160,37 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContactData that = (ContactData) o;
+
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
     }
 }
