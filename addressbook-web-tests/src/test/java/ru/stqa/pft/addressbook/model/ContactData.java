@@ -23,7 +23,26 @@ public class ContactData {
     private String phone2;
     private String notes;
     private String group;
+    private String allPhones;
+    private String allEmail;
 
+    public String getAllEmail() {
+        return allEmail;
+    }
+
+    public ContactData withAllEmail(String allEmail) {
+        this.allEmail = allEmail;
+        return this;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public int getId() {
         return id;
@@ -252,4 +271,6 @@ public class ContactData {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
     }
+
+
 }
