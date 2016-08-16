@@ -79,6 +79,10 @@ public class ContractHelper extends HelperBase {
         wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
     }
 
+    public void initViewDetailContractById(int id) {
+        wd.findElement(By.cssSelector("a[href='view.php?id=" + id + "']")).click();
+    }
+
     public void submitContractModification() {
         click(By.name("update"));
     }
@@ -157,6 +161,14 @@ public class ContractHelper extends HelperBase {
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstName(firstName)
                 .withLastName(lastName).withAddress(address).withEmail1(email).withEmail2(email2).withEmail3(email3).withTelHome(home).withTelMobile(mobile).withTelWork(work).withPhone2(phone2);
+    }
+
+    public ContactData infoFromDetailForm(ContactData contact) {
+        initViewDetailContractById(contact.getId());
+        String detailsInfo = wd.findElement(By.cssSelector("#content")).getText();
+        wd.navigate().back();
+
+        return new ContactData().withId(contact.getId()).withDetailsInfo(detailsInfo);
     }
 }
 
