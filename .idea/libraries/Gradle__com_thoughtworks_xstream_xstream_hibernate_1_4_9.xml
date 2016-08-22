@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.thoughtworks.xstream:xstream-hibernate:1.4.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.xstream/xstream-hibernate/1.4.9/340bab230ead26225457a8968e342f3034dcb6c2/xstream-hibernate-1.4.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.xstream/xstream-hibernate/1.4.9/f81ce4545c480c4e7a7d73fd6faf7578479b130a/xstream-hibernate-1.4.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
