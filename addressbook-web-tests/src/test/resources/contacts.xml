@@ -1,0 +1,71 @@
+<list>
+  <contact>
+    <firstName>FirstName 0</firstName>
+    <middleName>MiddleName 0</middleName>
+    <lastName>LastName 0</lastName>
+    <nickName>NickName 0</nickName>
+    <title>Title 0</title>
+    <company>Company 0</company>
+    <address>Address 0</address>
+    <telHome>TelHome 0</telHome>
+    <telMobile>TelMobile 0</telMobile>
+    <telWork>TelWork 0</telWork>
+    <fax>Fax 0</fax>
+    <email1>Email1 0</email1>
+    <email2>Email2 0</email2>
+    <email3>Email3 0</email3>
+    <homePage>HomePage 0</homePage>
+    <bYear>bYear 0</bYear>
+    <aYear>aYear 0</aYear>
+    <address2>Address2 0</address2>
+    <phone2>Phone2 0</phone2>
+    <notes>Notes 0</notes>
+    <group>test 0</group>
+  </contact>
+  <contact>
+    <firstName>FirstName 1</firstName>
+    <middleName>MiddleName 1</middleName>
+    <lastName>LastName 1</lastName>
+    <nickName>NickName 1</nickName>
+    <title>Title 1</title>
+    <company>Company 1</company>
+    <address>Address 1</address>
+    <telHome>TelHome 1</telHome>
+    <telMobile>TelMobile 1</telMobile>
+    <telWork>TelWork 1</telWork>
+    <fax>Fax 1</fax>
+    <email1>Email1 1</email1>
+    <email2>Email2 1</email2>
+    <email3>Email3 1</email3>
+    <homePage>HomePage 1</homePage>
+    <bYear>bYear 1</bYear>
+    <aYear>aYear 1</aYear>
+    <address2>Address2 1</address2>
+    <phone2>Phone2 1</phone2>
+    <notes>Notes 1</notes>
+    <group>test 1</group>
+  </contact>
+  <contact>
+    <firstName>FirstName 2</firstName>
+    <middleName>MiddleName 2</middleName>
+    <lastName>LastName 2</lastName>
+    <nickName>NickName 2</nickName>
+    <title>Title 2</title>
+    <company>Company 2</company>
+    <address>Address 2</address>
+    <telHome>TelHome 2</telHome>
+    <telMobile>TelMobile 2</telMobile>
+    <telWork>TelWork 2</telWork>
+    <fax>Fax 2</fax>
+    <email1>Email1 2</email1>
+    <email2>Email2 2</email2>
+    <email3>Email3 2</email3>
+    <homePage>HomePage 2</homePage>
+    <bYear>bYear 2</bYear>
+    <aYear>aYear 2</aYear>
+    <address2>Address2 2</address2>
+    <phone2>Phone2 2</phone2>
+    <notes>Notes 2</notes>
+    <group>test 2</group>
+  </contact>
+</list>

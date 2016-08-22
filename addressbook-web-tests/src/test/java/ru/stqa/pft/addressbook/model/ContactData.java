@@ -1,71 +1,61 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.io.File;
 
+@XStreamAlias("contact")
 public class ContactData {
+    @XStreamOmitField
     private int id;
+    @Expose
     private String firstName;
+    @Expose
     private String middleName;
+    @Expose
     private String lastName;
+    @Expose
     private String nickName;
+    @Expose
     private String title;
+    @Expose
     private String company;
+    @Expose
     private String address;
+    @Expose
     private String telHome;
+    @Expose
     private String telMobile;
+    @Expose
     private String telWork;
+    @Expose
     private String fax;
+    @Expose
     private String email1;
+    @Expose
     private String email2;
+    @Expose
     private String email3;
+    @Expose
     private String homePage;
+    @Expose
     private String bYear;
+    @Expose
     private String aYear;
+    @Expose
     private String address2;
+    @Expose
     private String phone2;
+    @Expose
     private String notes;
+    @Expose
     private String group;
     private String allPhones;
     private String allEmail;
     private String detailsInfo;
-
-    public File getPhoto() {
-        return photo;
-    }
-
-    public ContactData withPhoto(File photo) {
-        this.photo = photo;
-        return this;
-    }
-
     private File photo;
-
-    public String getAllEmail() {
-        return allEmail;
-    }
-
-    public ContactData withAllEmail(String allEmail) {
-        this.allEmail = allEmail;
-        return this;
-    }
-
-    public String getDetailsInfo() {
-        return detailsInfo;
-    }
-
-    public ContactData withDetailsInfo(String detailsInfo) {
-        this.detailsInfo = detailsInfo;
-        return this;
-    }
-
-    public String getAllPhones() {
-        return allPhones;
-    }
-
-    public ContactData withAllPhones(String allPhones) {
-        this.allPhones = allPhones;
-        return this;
-    }
 
     public int getId() {
         return id;
@@ -153,6 +143,22 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public String getAllEmail() {
+        return allEmail;
+    }
+
+    public String getDetailsInfo() {
+        return detailsInfo;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
     }
 
     public ContactData withId(int id) {
@@ -262,6 +268,26 @@ public class ContactData {
 
     public ContactData withGroup(String group) {
         this.group = group;
+        return this;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
+    public ContactData withAllEmail(String allEmail) {
+        this.allEmail = allEmail;
+        return this;
+    }
+
+    public ContactData withDetailsInfo(String detailsInfo) {
+        this.detailsInfo = detailsInfo;
+        return this;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
         return this;
     }
 
