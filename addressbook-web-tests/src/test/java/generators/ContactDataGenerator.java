@@ -92,7 +92,7 @@ public class ContactDataGenerator {
                     .withCompany(String.format("Company %s", i)).withAddress(String.format("Address %s", i)).withTelHome(String.format("+7(495)123-11-2%s", i))
                     .withTelMobile(String.format("8 495 123-21-2%s", i)).withTelWork(String.format("8495123312%s", i)).withFax(String.format("8495122312%s", i))
                     .withEmail1(String.format("Email@pochta.ru%s", i)).withEmail2(String.format("Email2@pochta.ru%s", i)).withEmail3(String.format("Email3@pochta.ru%s", i))
-                    .withHomePage(String.format("HomePage %s", i)).withbYear(String.format("bYear %s", i)).withaYear(String.format("aYear %s", i))
+                    .withHomePage(String.format("HomePage %s", i)).withbYear(String.format("201%s", i)).withaYear(String.format("201%s", i))
                     .withAddress2(String.format("Address2 %s", i)).withPhone2(String.format("+7(499)123-11-2%s", i)).withNotes(String.format("Notes %s", i))
                     .withGroup(String.format("test %s", i)));
         }

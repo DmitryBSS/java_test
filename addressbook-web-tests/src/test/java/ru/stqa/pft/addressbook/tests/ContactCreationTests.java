@@ -23,7 +23,7 @@ public class ContactCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validContractsFromXml() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("addressbook-web-tests/src/test/resources/contacts.xml")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")))) {
             String xml = "";
             String line = reader.readLine();
             while (line != null) {
@@ -39,7 +39,7 @@ public class ContactCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validContractsFromJson() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("addressbook-web-tests/src/test/resources/contacts.json")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
             String json = "";
             String line = reader.readLine();
             while (line != null) {
@@ -57,7 +57,7 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation(ContactData contact) {
         Contacts before = app.contract().all();
         app.goTo().gotoContactPage();
-        File photo = new File("addressbook-web-tests/src/test/resources/stru.png");
+        File photo = new File("src/test/resources/stru.png");
         contact = contact.withPhoto(photo);
         app.contract().create(contact);
         assertThat(app.contract().count(), equalTo(before.size() + 1));
