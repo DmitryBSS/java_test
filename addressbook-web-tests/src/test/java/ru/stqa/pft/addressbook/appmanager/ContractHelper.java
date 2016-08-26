@@ -60,15 +60,18 @@ public class ContractHelper extends HelperBase {
             click(By.xpath("//div[@id='content']/form/select[4]//option[3]"));
         }
         type(By.name("ayear"), contactData.getaYear());
-        type(By.name("address2"), contactData.getAddress2());
-        type(By.name("phone2"), contactData.getPhone2());
-        type(By.name("notes"), contactData.getNotes());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            if (contactData.getGroup() != null) {
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+
+        type(By.name("address2"), contactData.getAddress2());
+        type(By.name("phone2"), contactData.getPhone2());
+        type(By.name("notes"), contactData.getNotes());
     }
 
     public void selectContractById(int id) {

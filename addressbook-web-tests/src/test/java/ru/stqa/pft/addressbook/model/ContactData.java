@@ -352,9 +352,27 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", title='" + title + '\'' +
+                ", company='" + company + '\'' +
+                ", address='" + address + '\'' +
+                ", telHome='" + telHome + '\'' +
+                ", telMobile='" + telMobile + '\'' +
+                ", telWork='" + telWork + '\'' +
+                ", fax='" + fax + '\'' +
+                ", email1='" + email1 + '\'' +
+                ", email2='" + email2 + '\'' +
+                ", email3='" + email3 + '\'' +
+                ", homePage='" + homePage + '\'' +
+                ", bYear='" + bYear + '\'' +
+                ", aYear='" + aYear + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", phone2='" + phone2 + '\'' +
+                ", notes='" + notes + '\'' +
                 '}';
     }
 
@@ -367,7 +385,25 @@ public class ContactData {
 
         if (id != that.id) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
+        if (middleName != null ? !middleName.equals(that.middleName) : that.middleName != null) return false;
+        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        if (nickName != null ? !nickName.equals(that.nickName) : that.nickName != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (company != null ? !company.equals(that.company) : that.company != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (telHome != null ? !telHome.equals(that.telHome) : that.telHome != null) return false;
+        if (telMobile != null ? !telMobile.equals(that.telMobile) : that.telMobile != null) return false;
+        if (telWork != null ? !telWork.equals(that.telWork) : that.telWork != null) return false;
+        if (fax != null ? !fax.equals(that.fax) : that.fax != null) return false;
+        if (email1 != null ? !email1.equals(that.email1) : that.email1 != null) return false;
+        if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
+        if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
+        if (homePage != null ? !homePage.equals(that.homePage) : that.homePage != null) return false;
+        if (bYear != null ? !bYear.equals(that.bYear) : that.bYear != null) return false;
+        if (aYear != null ? !aYear.equals(that.aYear) : that.aYear != null) return false;
+        if (address2 != null ? !address2.equals(that.address2) : that.address2 != null) return false;
+        if (phone2 != null ? !phone2.equals(that.phone2) : that.phone2 != null) return false;
+        return notes != null ? notes.equals(that.notes) : that.notes == null;
 
     }
 
@@ -375,9 +411,25 @@ public class ContactData {
     public int hashCode() {
         int result = id;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (company != null ? company.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (telHome != null ? telHome.hashCode() : 0);
+        result = 31 * result + (telMobile != null ? telMobile.hashCode() : 0);
+        result = 31 * result + (telWork != null ? telWork.hashCode() : 0);
+        result = 31 * result + (fax != null ? fax.hashCode() : 0);
+        result = 31 * result + (email1 != null ? email1.hashCode() : 0);
+        result = 31 * result + (email2 != null ? email2.hashCode() : 0);
+        result = 31 * result + (email3 != null ? email3.hashCode() : 0);
+        result = 31 * result + (homePage != null ? homePage.hashCode() : 0);
+        result = 31 * result + (bYear != null ? bYear.hashCode() : 0);
+        result = 31 * result + (aYear != null ? aYear.hashCode() : 0);
+        result = 31 * result + (address2 != null ? address2.hashCode() : 0);
+        result = 31 * result + (phone2 != null ? phone2.hashCode() : 0);
+        result = 31 * result + (notes != null ? notes.hashCode() : 0);
         return result;
     }
-
-
 }
