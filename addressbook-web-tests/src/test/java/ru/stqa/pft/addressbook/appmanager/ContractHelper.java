@@ -97,6 +97,12 @@ public class ContractHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
+    public void addingInGroupById(int id) {
+        click(By.cssSelector("select[name='to_group']"));
+        click(By.cssSelector(".right>select>option[value='" + id + "']"));
+        click(By.name("add"));
+    }
+
     public void create(ContactData contact) {
         fillContractForm(contact, true);
         submitContractCreation();
