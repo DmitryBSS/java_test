@@ -8,6 +8,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
+import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -29,23 +30,42 @@ public class ContactAddingInGroupsTests extends TestBase {
     @Test
     public void testContactAddingGroup() {
         Groups groups = app.db().groups();
-        GroupData selectedGroup = groups.iterator().next();
         Contacts contacts = app.db().contacts();
         ContactData selectedContact = contacts.iterator().next();
         Groups groupsSelectedContact = selectedContact.getGroups();
-        for (int i = 0; i < contacts.size(); i++) {
+        GroupData selectedGroup = groups.iterator().next();
+        Iterator<ContactData> iteratorContacts = contacts.iterator();
+
+        while (iteratorContacts.hasNext()) {
             if (groupsSelectedContact.equals(groups)) {
-                selectedContact = contacts.iterator().next();
+                selectedContact = iteratorContacts.next();
                 groupsSelectedContact = selectedContact.getGroups();
             } else {
                 break;
             }
         }
+        if (groupsSelectedContact.equals(groups)) {
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("test100"));
+        }
+        groups = app.db().groups();
+        groupsSelectedContact = selectedContact.getGroups();
+        groups.removeAll(groupsSelectedContact);
+
+        if (groups.size() > 0) {
+            selectedGroup = groups.iterator().next();
+        } else {
+            throw new RuntimeException("Нету доступных групп");
+        }
         app.goTo().homePage();
         app.contract().selectContractById(selectedContact.getId());
         app.contract().addingInGroupById(selectedGroup.getId());
         app.goTo().homePageSelectedGroup(selectedGroup.getId());
-        assertThat(groupsSelectedContact.withAdded(selectedGroup), equalTo(
-                selectedContact.getGroups()));
+        groupsSelectedContact = selectedContact.getGroups();
+
+        assertThat(groupsSelectedContact, equalTo(
+                groupsSelectedContact.withAdded(selectedGroup)));
     }
 }
+
+
