@@ -29,31 +29,31 @@ public class ContactAddingInGroupsTests extends TestBase {
 
     @Test
     public void testContactAddingGroup() {
-        Groups groups = app.db().groups();
-        Contacts contacts = app.db().contacts();
-        ContactData selectedContact = contacts.iterator().next();
+        Groups groupsBefore = app.db().groups();
+        Contacts contactsBefore = app.db().contacts();
+        ContactData selectedContact = contactsBefore.iterator().next();
         Groups groupsSelectedContact = selectedContact.getGroups();
-        GroupData selectedGroup = groups.iterator().next();
-        Iterator<ContactData> iteratorContacts = contacts.iterator();
+        GroupData selectedGroup;
+        Iterator<ContactData> iteratorContacts = contactsBefore.iterator();
 
         while (iteratorContacts.hasNext()) {
-            if (groupsSelectedContact.equals(groups)) {
+            if (groupsSelectedContact.equals(groupsBefore)) {
                 selectedContact = iteratorContacts.next();
                 groupsSelectedContact = selectedContact.getGroups();
             } else {
                 break;
             }
         }
-        if (groupsSelectedContact.equals(groups)) {
+        if (groupsSelectedContact.equals(groupsBefore)) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test100"));
         }
-        groups = app.db().groups();
+        groupsBefore = app.db().groups();
         groupsSelectedContact = selectedContact.getGroups();
-        groups.removeAll(groupsSelectedContact);
+        groupsBefore.removeAll(groupsSelectedContact);
 
-        if (groups.size() > 0) {
-            selectedGroup = groups.iterator().next();
+        if (groupsBefore.size() > 0) {
+            selectedGroup = groupsBefore.iterator().next();
         } else {
             throw new RuntimeException("Нету доступных групп");
         }
@@ -61,9 +61,11 @@ public class ContactAddingInGroupsTests extends TestBase {
         app.contract().selectContractById(selectedContact.getId());
         app.contract().addingInGroupById(selectedGroup.getId());
         app.goTo().homePageSelectedGroup(selectedGroup.getId());
-        groupsSelectedContact = selectedContact.getGroups();
 
-        assertThat(groupsSelectedContact, equalTo(
+        Contacts contactsAfter = app.db().contacts();
+        Groups groupsContactAfter = contactsAfter.iterator().next().getGroups();
+
+        assertThat(groupsContactAfter, equalTo(
                 groupsSelectedContact.withAdded(selectedGroup)));
     }
 }
