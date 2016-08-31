@@ -62,9 +62,8 @@ public class ContactAddingInGroupsTests extends TestBase {
         app.contract().addingInGroupById(selectedGroup.getId());
         app.goTo().homePageSelectedGroup(selectedGroup.getId());
 
-        Contacts contactsAfter = app.db().contacts();
-        Groups groupsContactAfter = contactsAfter.iterator().next().getGroups();
-
+        ContactData contactAfter = app.db().contactById(selectedContact.getId()).iterator().next();
+        Groups groupsContactAfter = contactAfter.getGroups();
         assertThat(groupsContactAfter, equalTo(
                 groupsSelectedContact.withAdded(selectedGroup)));
     }

@@ -19,12 +19,12 @@ public class DbHelper {
 
     private final SessionFactory sessionFactory;
 
-    public DbHelper(){
+    public DbHelper() {
         // A SessionFactory is set up once for an application!
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
                 .build();
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
     }
 
     public Groups groups() {
@@ -40,6 +40,15 @@ public class DbHelper {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         List<ContactData> result = session.createQuery("from ContactData where deprecated = '0000-00-00'").list();
+        session.getTransaction().commit();
+        session.close();
+        return new Contacts(result);
+    }
+
+    public Contacts contactById(int contactId) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<ContactData> result = session.createQuery("from ContactData where id=" + contactId).list();
         session.getTransaction().commit();
         session.close();
         return new Contacts(result);
