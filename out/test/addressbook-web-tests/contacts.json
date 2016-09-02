@@ -1,0 +1,25 @@
+[
+  {
+    "firstName": "FirstName 0",
+    "middleName": "MiddleName 0",
+    "lastName": "LastName 0",
+    "nickName": "NickName 0",
+    "title": "Title 0",
+    "company": "Company 0",
+    "address": "Address 0",
+    "telHome": "+7(495)123-11-20",
+    "telMobile": "8 495 123-21-20",
+    "telWork": "84951233120",
+    "fax": "84951223120",
+    "email1": "Email@pochta.ru0",
+    "email2": "Email2@pochta.ru0",
+    "email3": "Email3@pochta.ru0",
+    "homePage": "HomePage 0",
+    "bYear": "2010",
+    "aYear": "2010",
+    "address2": "Address2 0",
+    "phone2": "+7(499)123-11-20",
+    "notes": "Notes 0",
+    "group": "test 0"
+  }
+]
