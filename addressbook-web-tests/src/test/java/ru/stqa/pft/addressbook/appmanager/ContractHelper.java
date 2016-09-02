@@ -103,6 +103,11 @@ public class ContractHelper extends HelperBase {
         click(By.name("add"));
     }
 
+    public void filterGroupsById(int id) {
+        click(By.cssSelector("#right"));
+        click(By.cssSelector("#right>select>option[value='" + id + "']"));
+    }
+
     public void create(ContactData contact) {
         fillContractForm(contact, true);
         submitContractCreation();
@@ -180,6 +185,10 @@ public class ContractHelper extends HelperBase {
         wd.navigate().back();
 
         return new ContactData().withId(contact.getId()).withDetailsInfo(detailsInfo);
+    }
+
+    public void removeFromGroup() {
+        click(By.cssSelector("input[name='remove']"));
     }
 }
 
