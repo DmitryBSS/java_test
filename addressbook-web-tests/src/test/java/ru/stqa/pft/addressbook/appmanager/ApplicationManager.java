@@ -19,7 +19,7 @@ public class ApplicationManager {
     private final Properties properties;
     WebDriver wd;
 
-    private ContractHelper contractHelper;
+    private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
@@ -46,7 +46,7 @@ public class ApplicationManager {
         }
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
-        contractHelper = new ContractHelper(wd);
+        contactHelper = new ContactHelper(wd);
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
@@ -65,8 +65,8 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public ContractHelper contract() {
-        return contractHelper;
+    public ContactHelper contract() {
+        return contactHelper;
     }
 
     public DbHelper db() {

@@ -13,9 +13,9 @@ import java.util.List;
 /**
  * Created by popdv on 25.07.2016.
  */
-public class ContractHelper extends HelperBase {
+public class ContactHelper extends HelperBase {
 
-    public ContractHelper(WebDriver wd) {
+    public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
