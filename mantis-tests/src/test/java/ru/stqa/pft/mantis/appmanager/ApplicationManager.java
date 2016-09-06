@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import org.hibernate.SessionFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,11 +20,14 @@ public class ApplicationManager {
     private final Properties properties;
     private WebDriver wd;
     private FtpHelper ftp;
-
-
     private String browser;
     private RegistrationHelper registrationHelper;
+    private AuthorizationHelper authorizationHelper;
     private MailHelper mailHelper;
+    private NavigationHelper navigationHelper;
+    private DbHelper dbHelper;
+    private SessionFactory sessionFactory;
+    private UserHelper userHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -56,6 +60,13 @@ public class ApplicationManager {
         return registrationHelper;
     }
 
+    public AuthorizationHelper authorization() {
+        if (authorizationHelper == null) {
+            authorizationHelper = new AuthorizationHelper(this);
+        }
+        return authorizationHelper;
+    }
+
     public FtpHelper ftp() {
         if (ftp == null) {
             ftp =  new FtpHelper(this);
@@ -83,5 +94,26 @@ public class ApplicationManager {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
+    }
+
+    public NavigationHelper goTo() {
+        if (navigationHelper == null) {
+            navigationHelper = new NavigationHelper(this);
+        }
+        return navigationHelper;
+    }
+
+    public DbHelper db() {
+        if (dbHelper == null) {
+            dbHelper = new DbHelper();
+        }
+        return dbHelper;
+    }
+
+    public UserHelper user() {
+        if (userHelper == null) {
+            userHelper = new UserHelper(this);
+        }
+        return userHelper;
     }
 }

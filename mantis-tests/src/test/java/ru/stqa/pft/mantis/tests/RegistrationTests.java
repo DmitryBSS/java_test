@@ -32,14 +32,12 @@ public class RegistrationTests extends TestBase {
         String confirmationLink = findConfirmationLink(mailMessages, email);
         app.registration().finish(confirmationLink, password);
         assertTrue(app.newSession().login(user, password));
-
     }
 
     private String findConfirmationLink(List<MailMessage> mailMessages, String email) {
         MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findFirst().get();
         VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
         return regex.getText(mailMessage.text);
-
     }
 
     @AfterMethod(alwaysRun = true)
