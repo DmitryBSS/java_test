@@ -12,6 +12,10 @@ public class UserHelper extends HelperBase {
         wd = app.getDriver();
     }
 
+    public String getTextLogged(){
+        return wd.findElement(By.cssSelector("#logged-in")).getText();
+    }
+
     public void initChangeUser(String userName) {
         type(By.cssSelector("#username"), userName);
         click(By.cssSelector(".button[value='Изменить учетную запись']"));
