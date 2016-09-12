@@ -6,6 +6,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.io.File;
+import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,7 +34,14 @@ public class ContactDeletionTests extends TestBase {
     @Test
     public void testContactDeletion() {
         Contacts before = app.db().contacts();
+        Iterator<ContactData> iterator = before.iterator();
         ContactData deletedContact = before.iterator().next();
+        while (iterator.hasNext()) {
+            deletedContact = iterator.next();
+            if (deletedContact.getId() != 217) {
+                break;
+            }
+        }
         app.contract().delete(deletedContact);
         app.goTo().homePage();
         assertThat(app.contract().count(), equalTo(before.size() - 1));

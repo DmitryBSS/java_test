@@ -2,8 +2,10 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -17,11 +19,19 @@ public class DetailInformationContactTests extends TestBase {
     @Test
     public void testDetailInformationContact() {
         app.goTo().homePage();
-        ContactData contact = app.contract().all().iterator().next();
+        Contacts contacts = app.contract().all();
+        Iterator<ContactData> iterator = contacts.iterator();
+        ContactData contact = null;
+        while (iterator.hasNext()) {
+            contact = iterator.next();
+            if (contact.getId() == 217) {
+                break;
+            }
+        }
         ContactData contactInfoFromDetailForm = app.contract().infoFromDetailForm(contact);
         ContactData contactInfoFromEditForm = app.contract().infoFromEditForm(contact);
-
-        assertThat(contactInfoFromDetailForm.getDetailsInfo(), equalTo(mergeInfoFromEditForm(contactInfoFromEditForm)));
+        String mergeInfoFromEditForm = mergeInfoFromEditForm(contactInfoFromEditForm);
+        assertThat(contactInfoFromDetailForm.getDetailsInfo(), equalTo(mergeInfoFromEditForm));
     }
 
     private String mergeInfoFromEditForm(ContactData contact) {
