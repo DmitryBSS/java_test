@@ -3,6 +3,9 @@
 <suite name="Suite1" verbose="1">
     <test name="All">
         <classes>
+            <class name="ru.stqa.pft.addressbook.tests.GroupCreationTests"/>
+            <class name="ru.stqa.pft.addressbook.tests.GroupModificationTests"/>
+            <class name="ru.stqa.pft.addressbook.tests.GroupDeletionTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactAddingInGroupsTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactAddressTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactCreationTests"/>
@@ -13,9 +16,6 @@
             <class name="ru.stqa.pft.addressbook.tests.ContactPhoneTests"/>
             <class name="ru.stqa.pft.addressbook.tests.DbConnectionTest"/>
             <class name="ru.stqa.pft.addressbook.tests.DetailInformationContactTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.GroupCreationTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.GroupModificationTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.GroupDeletionTests"/>
             <class name="ru.stqa.pft.addressbook.tests.HbConnectionTest"/>
         </classes>
     </test>

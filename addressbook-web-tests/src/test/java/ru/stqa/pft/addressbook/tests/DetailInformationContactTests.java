@@ -24,7 +24,6 @@ public class DetailInformationContactTests extends TestBase {
         assertThat(contactInfoFromDetailForm.getDetailsInfo(), equalTo(mergeInfoFromEditForm(contactInfoFromEditForm)));
     }
 
-
     private String mergeInfoFromEditForm(ContactData contact) {
         if (!(contact.getTelHome().equals(""))) {
             contact.withTelHome("H: " + contact.getTelHome());

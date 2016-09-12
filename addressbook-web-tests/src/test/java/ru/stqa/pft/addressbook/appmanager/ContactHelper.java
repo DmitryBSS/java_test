@@ -139,7 +139,6 @@ public class ContactHelper extends HelperBase {
 
     private Contacts contactCache = null;
 
-
     public Contacts all() {
         if (contactCache != null) {
             return new Contacts(contactCache);
@@ -159,7 +158,6 @@ public class ContactHelper extends HelperBase {
         }
         return new Contacts(contactCache);
     }
-
 
     public ContactData infoFromEditForm(ContactData contact) {
         initContractModificationById(contact.getId());
