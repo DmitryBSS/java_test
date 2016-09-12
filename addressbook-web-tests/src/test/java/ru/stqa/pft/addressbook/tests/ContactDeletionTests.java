@@ -19,7 +19,7 @@ public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().homePage();
-        if (app.db().contacts().size() == 0) {
+        if (app.db().contacts().size() == 1 & app.db().contacts().iterator().next().getId() == 217) {
             app.goTo().gotoContactPage();
             File photo = new File("src/test/resources/stru.png");
             app.contract().create(new ContactData()
