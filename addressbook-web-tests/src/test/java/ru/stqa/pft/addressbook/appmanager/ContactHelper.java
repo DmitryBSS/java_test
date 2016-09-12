@@ -108,6 +108,11 @@ public class ContactHelper extends HelperBase {
         click(By.cssSelector("#right>select>option[value='" + id + "']"));
     }
 
+    public void filterGroupsReset() {
+        click(By.cssSelector("#right"));
+        click(By.cssSelector("#right>select>option[value='']"));
+    }
+
     public void create(ContactData contact) {
         fillContractForm(contact, true);
         submitContractCreation();

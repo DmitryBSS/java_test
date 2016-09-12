@@ -80,6 +80,7 @@ public class ContactDeleteFromGroupTests extends TestBase {
 
         assertThat(groupsContactAfterAfter, equalTo(
                 contact.getGroups().without(group)));
+        app.contract().filterGroupsReset();
     }
 }
 
